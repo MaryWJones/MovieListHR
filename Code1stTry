@@ -1,8 +1,7 @@
-const https = require("https");
-async function cleanPrintMovies(year) {
-  let yourList;
+async function ourMovieList(year) {
+  let movList;
   const url = `https://jsonmock.hackerrank.com/api/movies?Year=${year}`;
-  yourList = await new Promise((res, rej) => {
+  movList = await new Promise((res, rej) => {
        .get(url, (resp) => {
         let data = "";
         resp.on("data", (chunk) => {
@@ -17,6 +16,6 @@ async function cleanPrintMovies(year) {
         rej(new Error(err));
       });
   });
-  console.log(yourList);
+  console.log(movList);
 }
-cleanPrintMovies(2012);
+ourMovieList(2012);
